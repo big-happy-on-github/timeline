@@ -11,27 +11,33 @@
         <h1>LIBBY'S TIMELINE</h1>
         <p>by Liam as a birthday gift</p>
     </header>
-    <div class="timeline">
-        <div class="timeline-event">
-            <div class="timeline-date">2024-01-01</div>
-            <div class="timeline-content">
-                <h3>New Year's Day</h3>
-                <p>Celebration of the start of a new year.</p>
+    <div class="timeline-container">
+        <div class="timeline">
+            <div class="timeline-item" data-date="2024-01-01">
+                <img src="new-year.jpg" alt="New Year's Day">
+                <div class="timeline-info">
+                    <h3>New Year's Day</h3>
+                    <p>Celebration of the start of a new year.</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-date="2024-07-04">
+                <img src="independence-day.jpg" alt="Independence Day">
+                <div class="timeline-info">
+                    <h3>Independence Day</h3>
+                    <p>Commemorating the Declaration of Independence of the United States.</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-date="2024-12-25">
+                <img src="christmas.jpg" alt="Christmas Day">
+                <div class="timeline-info">
+                    <h3>Christmas Day</h3>
+                    <p>Celebration of Christmas around the world.</p>
+                </div>
             </div>
         </div>
-        <div class="timeline-event">
-            <div class="timeline-date">2024-07-04</div>
-            <div class="timeline-content">
-                <h3>Independence Day</h3>
-                <p>Commemorating the Declaration of Independence of the United States.</p>
-            </div>
-        </div>
-        <div class="timeline-event">
-            <div class="timeline-date">2024-12-25</div>
-            <div class="timeline-content">
-                <h3>Christmas Day</h3>
-                <p>Celebration of Christmas around the world.</p>
-            </div>
+        <div class="timeline-navigation">
+            <button id="prev-btn">&#9664;</button>
+            <button id="next-btn">&#9654;</button>
         </div>
     </div>
 </body>
