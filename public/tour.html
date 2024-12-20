@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LIBBY'S TIMELINE 2024 Birthday Gift</title>
-    <link rel="stylesheet" href="/css/styles.css" />
     <style>
         body {
             margin: 0;
@@ -31,19 +30,21 @@
             left: 50%;
             transform: translateX(-50%);
             width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .container {
-            position: relative;
             width: 100%;
-            animation: moveDown 5s linear infinite;
+            display: flex;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeMove 5s linear forwards;
         }
 
-        .container.left, .container.right {
-            display: flex;
-            align-items: center;
+        .container.left {
             justify-content: flex-start;
-            margin: 10px 0;
         }
 
         .container.right {
@@ -57,12 +58,17 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        @keyframes moveDown {
+        @keyframes fadeMove {
             0% {
-                transform: translateY(0);
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
             }
             100% {
-                transform: translateY(200%);
+                transform: translateY(400px);
+                opacity: 0;
             }
         }
     </style>
@@ -97,18 +103,21 @@
 
         // Function to add a new timeline entry
         function addTimelineEntry() {
-            year--;
             const side = year % 2 === 0 ? "left" : "right";
             const entry = createTimelineEntry(year, side);
             timeline.appendChild(entry);
 
-            // Remove old elements to prevent buildup
-            if (timeline.children.length > 6) {
-                timeline.removeChild(timeline.firstChild);
-            }
+            // Remove old entries after animation completes
+            setTimeout(() => {
+                if (timeline.firstChild) {
+                    timeline.removeChild(timeline.firstChild);
+                }
+            }, 5000);
+
+            year--; // Decrement the year for the next entry
         }
 
-        // Add new timeline entries continuously
+        // Add a new timeline entry every 2 seconds
         setInterval(addTimelineEntry, 2000);
     </script>
 </body>
