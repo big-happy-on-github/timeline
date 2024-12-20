@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>LIBBY'S TIMELINE 2024 Birthday Gift</title>
+    <link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+    <header>
+        <h1>LIBBY'S TIMELINE</h1>
+        <p>by Liam as a birthday gift</p>
+    </header>
+    <main>
+        <div class="timeline">
+            <div class="container left">
+                <div class="content">
+                    <h2>2017</h2>
+                    <p>Lorem ipsum..</p>
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content">
+                    <h2>2016</h2>
+                    <p>Lorem ipsum..</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        // Define starting year and container
+        let year = 2017;
+        const timeline = document.querySelector(".timeline");
+        
+        // Function to create a new timeline entry
+        function createTimelineEntry(year, side) {
+            const container = document.createElement("div");
+            container.className = `container ${side}`;
+            const content = document.createElement("div");
+            content.className = "content";
+            const h2 = document.createElement("h2");
+            h2.textContent = year;
+            const p = document.createElement("p");
+            p.textContent = `Highlights of ${year}`;
+            content.appendChild(h2);
+            content.appendChild(p);
+            container.appendChild(content);
+            return container;
+        }
+        
+        // Function to add a new timeline entry every 2 seconds
+        function addTimelineEntry() {
+            year--;
+            const side = year % 2 === 0 ? "left" : "right";
+            const newEntry = createTimelineEntry(year, side);
+            timeline.appendChild(newEntry);
+            
+            // Smooth scroll effect
+            newEntry.scrollIntoView({ behavior: "smooth" });
+        }
+        
+        // Add the first few timeline entries on load
+        for (let i = 0; i < 5; i++) {
+            addTimelineEntry();
+        }
+        
+        // Continuously add new entries
+        setInterval(addTimelineEntry, 2000);
+    </script>
+</body>
+</html>
