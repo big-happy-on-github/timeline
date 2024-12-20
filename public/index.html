@@ -2,70 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>LIBBY'S TIMELINE 2024 Birthday Gift</title>
-    <link rel="stylesheet" href="/css/styles.css" />
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden; /* Prevent scrolling */
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            z-index: 1000;
-        }
-
-        .timeline {
-            position: absolute;
-            top: 100px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-        }
-
-        .container {
-            position: relative;
-            width: 100%;
-            animation: moveDown 5s linear infinite;
-        }
-
-        .container.left, .container.right {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            margin: 10px 0;
-        }
-
-        .container.right {
-            justify-content: flex-end;
-        }
-
-        .content {
-            background: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        @keyframes moveDown {
-            0% {
-                transform: translateY(0);
-            }
-            100% {
-                transform: translateY(200%);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/css/styles.css"/>
 </head>
 <body>
     <header>
@@ -73,43 +12,21 @@
         <p>by Liam as a birthday gift</p>
     </header>
     <main>
-        <div class="timeline" id="timeline"></div>
+        <div class="timeline">
+            <div class="container left">
+                <div class="content">
+                    <h2>2017</h2>
+                    <p>Lorem ipsum..</p>
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content">
+                    <h2>2016</h2>
+                    <p>Lorem ipsum..</p>
+                </div>
+            </div>
+        </div>
+        <button onclick="window.location.href='/tour'">Start Tour</button>
     </main>
-    <script>
-        const timeline = document.getElementById("timeline");
-        let year = 2017;
-
-        // Function to create a new timeline entry
-        function createTimelineEntry(year, side) {
-            const container = document.createElement("div");
-            container.className = `container ${side}`;
-            const content = document.createElement("div");
-            content.className = "content";
-            const h2 = document.createElement("h2");
-            h2.textContent = year;
-            const p = document.createElement("p");
-            p.textContent = `Highlights of ${year}`;
-            content.appendChild(h2);
-            content.appendChild(p);
-            container.appendChild(content);
-            return container;
-        }
-
-        // Function to add a new timeline entry
-        function addTimelineEntry() {
-            year--;
-            const side = year % 2 === 0 ? "left" : "right";
-            const entry = createTimelineEntry(year, side);
-            timeline.appendChild(entry);
-
-            // Remove old elements to prevent buildup
-            if (timeline.children.length > 6) {
-                timeline.removeChild(timeline.firstChild);
-            }
-        }
-
-        // Add new timeline entries continuously
-        setInterval(addTimelineEntry, 2000);
-    </script>
 </body>
 </html>
